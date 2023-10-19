@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/startFragment">
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_chooseFirstTeamFragment"
+            app:destination="@id/chooseFirstTeamFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_finishedMatchesFragment"
+            app:destination="@id/finishedMatchesFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/chooseFirstTeamFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.ChooseFirstTeamFragment"
+        android:label="fragment_choose_first_team"
+        tools:layout="@layout/fragment_choose_first_team" >
+        <action
+            android:id="@+id/action_chooseFirstTeamFragment_to_chooseSecondTeamFragment"
+            app:destination="@id/chooseSecondTeamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseSecondTeamFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.ChooseSecondTeamFragment"
+        android:label="fragment_choose_second_team"
+        tools:layout="@layout/fragment_choose_second_team" >
+        <argument
+            android:name="TeamModel"
+            app:argType="qwer.runner.betfootball.model.TeamModel" />
+        <action
+            android:id="@+id/action_chooseSecondTeamFragment_to_chooseThirdFragment"
+            app:destination="@id/chooseThirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdGameFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.ThirdGameFragment"
+        android:label="fragment_third_game"
+        tools:layout="@layout/fragment_third_game" >
+        <action
+            android:id="@+id/action_thirdGameFragment_to_finishedMatchesFragment"
+            app:destination="@id/finishedMatchesFragment"
+            app:popUpTo="@id/chooseFirstTeamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseThirdFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.ChooseThirdFragment"
+        android:label="fragment_choose_third"
+        tools:layout="@layout/fragment_choose_third" >
+        <action
+            android:id="@+id/action_chooseThirdFragment_to_thirdGameFragment"
+            app:destination="@id/thirdGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishedMatchesFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.FinishedMatchesFragment"
+        android:label="fragment_finished_matches"
+        tools:layout="@layout/fragment_finished_matches" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/teamsFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.TeamsFragment"
+        android:label="Teams"
+        tools:layout="@layout/fragment_teams" >
+        <action
+            android:id="@+id/action_teamsFragment_to_playersFragment"
+            app:destination="@id/playersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tacticsFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.TacticsFragment"
+        android:label="fragment_tactics"
+        tools:layout="@layout/fragment_tactics" >
+        <action
+            android:id="@+id/action_tacticsFragment_to_tacticsDescFragment"
+            app:destination="@id/tacticsDescFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playersFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.PlayersFragment"
+        android:label="fragment_players"
+        tools:layout="@layout/fragment_players" >
+        <argument
+            android:name="Team"
+            app:argType="qwer.runner.betfootball.model.TeamModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/tacticsDescFragment"
+        android:name="qwer.runner.betfootball.presentation.fragments.TacticsDescFragment"
+        android:label="fragment_tactics_desc"
+        tools:layout="@layout/fragment_tactics_desc" >
+        <argument
+            android:name="TacticsModel"
+            app:argType="qwer.runner.betfootball.model.TacticsModel" />
+    </fragment>
+</navigation>
